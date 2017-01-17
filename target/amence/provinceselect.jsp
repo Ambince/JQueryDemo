@@ -80,7 +80,6 @@
                 },
                 success: function (data) {
                     var size = data.length;
-                    alert(data);
                     for (var i = 0; i < size; i++) {
                         var area = data[i];
                         var option = document.createElement("option");
