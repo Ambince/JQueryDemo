@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!--配置处理器映射器，springmvc默认处理映射器
+   BeanNameUrlHandleMapping:根据bean(自定义Controler)的那么属性的url去寻找handler-->
+    <context:component-scan base-package="com.action"></context:component-scan>
+
+
+    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean>
+    <!--<bean name="" class=""></bean>-->
+    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter">
+
+
+    </bean>
+
+    <!--配置springmvc的视图解析器-->
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+
+        <property name="prefix" value="/WEB-INF"></property>
+        <property name="suffix" value=".jsp"></property>
+
+    </bean>
+
+
+
+    <!--启动注解驱动的Spring MVC功能，注册请求url和注解POJO类方法的映射-->
+    <mvc:annotation-driven></mvc:annotation-driven>
+</beans>
