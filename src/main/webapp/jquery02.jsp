@@ -191,17 +191,95 @@
 </script>
 
 
-
 <div class="myClass">有样式</div>
 <div>无样式</div>
 <script>
 
     //无样式的DIV添加样式
-   $("div").toggleClass("myClass");
+    $("div").toggleClass("myClass");
 
-   var flag = $("div:last").hasClass("myClass");
-   alert(flag?"有样式":"无样式")
+    var flag = $("div:last").hasClass("myClass");
+    alert(flag ? "有样式" : "无样式")
+</script>
 
+<img src="images/zgl.jpg"/>
+<script>
+    //图片隐蔽
+    $("img").hide(5000);
+
+    //睡眠3秒钟
+    window.setTimeout(function () {
+        //图片显示
+        $("img").show(5000);
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //获取图片的坐标
+    var offset = $("img:last").offset();
+    var x = offset.left;
+    var y = offset.top;
+    document.write("x=" + x + " y=" + y);
+
+
+    //设置图片的坐标
+    $("img").offset({
+        top: 100,
+        left: 200
+    });
+
+    //设置图片的宽高
+    var w = $("img").width();
+    var h = $("img").height();
+    document.write(" =" + w + ":" + h);
+
+
+    $("img:last").width(500);
+    $("img:last").height(600);
+
+</script>
+<div>
+<span>
+    Hello Again
+    <b>
+        Bold
+    </b>
+
+</span>
+</div>
+<p>And Again</p>
+<span>And Span</span>
+
+<script>
+    //取得div元素的直接子元素内容，不含后代元素
+    var $span = $("div:last").children();
+    //包含子标签
+    //    var content = $span.html();
+    //不包含子标签
+    var content = $span.text();
+    alert(content);
+
+    //取得div元素的下一个同级的兄弟元素内容
+    var $p = $("div:last").next();
+    alert($p.text());
+
+    //取得div元素的上一个同级的兄弟元素内容
+    alert($("div:last").prev().text());
+    //一起取得div元素的上下一个同级的所有兄弟元素的内容
+    var $all = $("div:last").sibling("p");
+    $all.each(function () {
+        alert($(this).html());
+    })
 
 
 </script>
